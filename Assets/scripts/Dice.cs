@@ -9,6 +9,8 @@ public class Dice : MonoBehaviour
     private int whosTurn = 1;
     private bool coroutineAllowed = true;
 
+    public static int manyTurns = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class Dice : MonoBehaviour
     {
         coroutineAllowed = false;
         int randomDiceSide = 0;
+
         for (int i = 0; i < 20; i++)
         {
             randomDiceSide = Random.Range(0,6);
@@ -43,6 +46,7 @@ public class Dice : MonoBehaviour
             GameControl.MovePlayer(2);
         }
         whosTurn *= -1;
+        manyTurns++;
 
         coroutineAllowed = true;
     }
